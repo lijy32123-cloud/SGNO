@@ -63,9 +63,9 @@ The history length is initial_step. For each training sample, the model consumes
 
 The example configs mirror the default dimensional settings used in the paper level experiments.
 
-configs/example_1d.json uses width 28, modes 28, n_blocks 4.
-configs/example_2d.json uses width 20, modes 8 per axis, n_blocks 4 with a smooth forcing mask.
-configs/example_3d.json uses width 4, modes 8 per axis, n_blocks 4 with inner_steps 5.
+configs/example_1d.json 
+configs/example_2d.json
+configs/example_3d.json 
 
 ## Training
 
@@ -81,13 +81,6 @@ The output directory contains best.pt and a small state.json.
 
 Autoregressive rollouts initialize from the first test frames and repeatedly apply the learned one step map. The evaluation script reports rollout metrics aligned with the paper.
 
-Per step normalized RMSE:
-
-nRMSE(t) = ||u_hat(t) - u(t)||_2 / (||u(t)||_2 + eps)
-
-GMean100 for a trajectory is the geometric mean of capped errors over the rollout horizon:
-
-GMean100 = exp( mean_t log( min(nRMSE(t), 100) + eps ) )
 
 Stable step with threshold tau is the first t where nRMSE(t) > tau. Non finite values are treated as crossing at their first occurrence. If the threshold is never crossed, stable step is set to the rollout horizon.
 
