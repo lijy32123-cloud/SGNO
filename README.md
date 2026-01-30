@@ -63,10 +63,6 @@ The history length is initial_step. For each training sample, the model consumes
 
 The example configs mirror the default dimensional settings used in the paper level experiments.
 
-configs/example_1d.json 
-configs/example_2d.json
-configs/example_3d.json 
-
 ## Training
 
 One step supervised training minimizes MSE on the next state.
